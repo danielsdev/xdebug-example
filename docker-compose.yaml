@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  php:
+    build:
+      context: .
+    extra_hosts:
+      - "host.docker.internal:host-gateway" # For Linux
+    ports:
+      - 8123:8123
+    volumes:
+      - ./:/app
+    working_dir: /app
+    entrypoint: "php -S 0.0.0.0:8123"
